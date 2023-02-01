@@ -1,0 +1,101 @@
+
+****** PlanAhead v14.7
+  **** Build 321239 by xbuild on Fri Sep 27 19:31:35 MDT 2013
+    ** Copyright 1986-1999, 2001-2013 Xilinx, Inc. All Rights Reserved.
+
+INFO: [Common 17-78] Attempting to get a license: PlanAhead
+INFO: [Common 17-290] Got license for PlanAhead
+INFO: [Common 17-86] Your PlanAhead license expires in -734 day(s)
+INFO: [Device 21-36] Loading parts and site information from C:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/arch.xml
+Parsing RTL primitives file [C:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+Finished parsing RTL primitives file [C:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+start_gui
+source {F:/CEDT projects/color_mixer_fpga/codes/v1_adc/parameterized_adc/pa.fromHdl.tcl}
+# create_project -name parameterized_adc -dir "F:/CEDT projects/color_mixer_fpga/codes/v1_adc/parameterized_adc/planAhead_run_2" -part xc3s50antqg144-4
+# set_param project.pinAheadLayout yes
+# set srcset [get_property srcset [current_run -impl]]
+# set_property target_constrs_file "adc4pwm.ucf" [current_fileset -constrset]
+Adding file 'F:/CEDT projects/color_mixer_fpga/codes/v1_adc/parameterized_adc/adc4pwm.ucf' to fileset 'constrs_1'
+# set hdlfile [add_files [list {adc.v}]]
+# set_property file_type Verilog $hdlfile
+# set_property library work $hdlfile
+# set_property top adc4pwm $srcset
+# add_files [list {adc4pwm.ucf}] -fileset [get_property constrset [current_run]]
+# open_rtl_design -part xc3s50antqg144-4
+Using Verific elaboration
+Parsing VHDL file "C:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/lib/synplify/synattr.vhd" into library synplify
+Analyzing Verilog file "F:/CEDT projects/color_mixer_fpga/codes/v1_adc/parameterized_adc/adc.v" into library work
+INFO: [Designutils 20-910] Reading macro library C:/Xilinx/14.7/ISE_DS/PlanAhead/data\./parts/xilinx/spartan3a/hd_int_macros.edn
+Parsing EDIF File [C:/Xilinx/14.7/ISE_DS/PlanAhead/data\./parts/xilinx/spartan3a/hd_int_macros.edn]
+Finished Parsing EDIF File [C:/Xilinx/14.7/ISE_DS/PlanAhead/data\./parts/xilinx/spartan3a/hd_int_macros.edn]
+Loading clock regions from C:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan3a/spartan3a/xc3s50an/ClockRegion.xml
+Loading clock buffers from C:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan3a/spartan3a/xc3s50an/ClockBuffers.xml
+Loading package from C:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan3a/spartan3a/xc3s50an/tqg144/Package.xml
+Loading io standards from C:/Xilinx/14.7/ISE_DS/PlanAhead/data\./parts/xilinx/spartan3a/IOStandards.xml
+INFO: [Device 21-19] Loading pkg sso from C:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan3a/spartan3a/xc3s50an/tqg144/SSORules.xml
+Loading list of drcs for the architecture : C:/Xilinx/14.7/ISE_DS/PlanAhead/data\./parts/xilinx/spartan3a/drc.xml
+INFO: [Timing 38-77] Reading timing library C:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan3a/spartan3a/spartan3a-4.lib.
+INFO: [Timing 38-34] Done reading timing library C:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan3a/spartan3a/spartan3a-4.lib.
+Parsing UCF File [F:/CEDT projects/color_mixer_fpga/codes/v1_adc/parameterized_adc/adc4pwm.ucf]
+Finished Parsing UCF File [F:/CEDT projects/color_mixer_fpga/codes/v1_adc/parameterized_adc/adc4pwm.ucf]
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Phase 0 | Netlist Checksum: 2b7d4607
+open_rtl_design: Time (s): elapsed = 00:00:07 . Memory (MB): peak = 470.586 ; gain = 63.824
+update_compile_order -fileset sim_1
+set_property package_pin "" [get_ports [list  {pwm[3]}]]
+startgroup
+set_property package_pin P134 [get_ports {pwm[0]}]
+endgroup
+set_property package_pin "" [get_ports [list  {pwm[1]}]]
+startgroup
+set_property package_pin P130 [get_ports {pwm[2]}]
+endgroup
+startgroup
+set_property package_pin P116 [get_ports {pwm[3]}]
+endgroup
+save_constraints
+startgroup
+set_property package_pin P124 [get_ports {pwm[1]}]
+endgroup
+set_property package_pin "" [get_ports [list  clk]]
+set_property package_pin "" [get_ports [list  reset]]
+startgroup
+set_property package_pin P55 [get_ports clk]
+endgroup
+set_property package_pin "" [get_ports [list  reset]]
+startgroup
+set_property package_pin P138 [get_ports reset]
+endgroup
+save_constraints
+startgroup
+set_property package_pin P4 [get_ports {discharge[3]}]
+endgroup
+startgroup
+set_property package_pin P28 [get_ports {discharge[2]}]
+endgroup
+startgroup
+set_property package_pin P32 [get_ports {discharge[1]}]
+endgroup
+startgroup
+set_property package_pin P44 [get_ports {discharge[0]}]
+endgroup
+save_constraints
+startgroup
+set_property package_pin P6 [get_ports {compared_value[3]}]
+endgroup
+startgroup
+set_property package_pin P16 [get_ports {compared_value[2]}]
+endgroup
+startgroup
+set_property package_pin P30 [get_ports {compared_value[1]}]
+endgroup
+startgroup
+set_property package_pin P42 [get_ports {compared_value[0]}]
+endgroup
+save_constraints
+exit
+ERROR: [Common 17-39] 'stop_gui' failed due to earlier errors.
+INFO: [Common 17-206] Exiting PlanAhead at Mon Jul 05 15:09:16 2021...
+INFO: [Common 17-83] Releasing license: PlanAhead

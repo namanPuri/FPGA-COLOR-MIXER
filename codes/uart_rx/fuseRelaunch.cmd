@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -o "F:/CEDT projects/color_mixer_fpga/codes/uart_rx/uart_rx_tb_isim_beh.exe" -prj "F:/CEDT projects/color_mixer_fpga/codes/uart_rx/uart_rx_tb_beh.prj" "work.uart_rx_tb" "work.glbl" 

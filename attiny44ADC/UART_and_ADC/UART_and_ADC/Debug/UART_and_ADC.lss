@@ -1,0 +1,612 @@
+
+UART_and_ADC.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000270  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00800060  00800060  000002e4  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000004  00800060  00800060  000002e4  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  000002e4  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000314  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000060  00000000  00000000  00000350  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   00000945  00000000  00000000  000003b0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 0000064f  00000000  00000000  00000cf5  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   0000041c  00000000  00000000  00001344  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  000000dc  00000000  00000000  00001760  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    000004cc  00000000  00000000  0000183c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    000002fe  00000000  00000000  00001d08  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000068  00000000  00000000  00002006  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	10 c0       	rjmp	.+32     	; 0x22 <__ctors_end>
+   2:	1f c0       	rjmp	.+62     	; 0x42 <__bad_interrupt>
+   4:	1e c0       	rjmp	.+60     	; 0x42 <__bad_interrupt>
+   6:	1d c0       	rjmp	.+58     	; 0x42 <__bad_interrupt>
+   8:	1c c0       	rjmp	.+56     	; 0x42 <__bad_interrupt>
+   a:	1b c0       	rjmp	.+54     	; 0x42 <__bad_interrupt>
+   c:	1a c0       	rjmp	.+52     	; 0x42 <__bad_interrupt>
+   e:	19 c0       	rjmp	.+50     	; 0x42 <__bad_interrupt>
+  10:	18 c0       	rjmp	.+48     	; 0x42 <__bad_interrupt>
+  12:	17 c0       	rjmp	.+46     	; 0x42 <__bad_interrupt>
+  14:	16 c0       	rjmp	.+44     	; 0x42 <__bad_interrupt>
+  16:	15 c0       	rjmp	.+42     	; 0x42 <__bad_interrupt>
+  18:	14 c0       	rjmp	.+40     	; 0x42 <__bad_interrupt>
+  1a:	13 c0       	rjmp	.+38     	; 0x42 <__bad_interrupt>
+  1c:	12 c0       	rjmp	.+36     	; 0x42 <__bad_interrupt>
+  1e:	11 c0       	rjmp	.+34     	; 0x42 <__bad_interrupt>
+  20:	7a c0       	rjmp	.+244    	; 0x116 <__vector_16>
+
+00000022 <__ctors_end>:
+  22:	11 24       	eor	r1, r1
+  24:	1f be       	out	0x3f, r1	; 63
+  26:	cf e5       	ldi	r28, 0x5F	; 95
+  28:	d1 e0       	ldi	r29, 0x01	; 1
+  2a:	de bf       	out	0x3e, r29	; 62
+  2c:	cd bf       	out	0x3d, r28	; 61
+
+0000002e <__do_clear_bss>:
+  2e:	20 e0       	ldi	r18, 0x00	; 0
+  30:	a0 e6       	ldi	r26, 0x60	; 96
+  32:	b0 e0       	ldi	r27, 0x00	; 0
+  34:	01 c0       	rjmp	.+2      	; 0x38 <.do_clear_bss_start>
+
+00000036 <.do_clear_bss_loop>:
+  36:	1d 92       	st	X+, r1
+
+00000038 <.do_clear_bss_start>:
+  38:	a4 36       	cpi	r26, 0x64	; 100
+  3a:	b2 07       	cpc	r27, r18
+  3c:	e1 f7       	brne	.-8      	; 0x36 <.do_clear_bss_loop>
+  3e:	d4 d0       	rcall	.+424    	; 0x1e8 <main>
+  40:	15 c1       	rjmp	.+554    	; 0x26c <_exit>
+
+00000042 <__bad_interrupt>:
+  42:	de cf       	rjmp	.-68     	; 0x0 <__vectors>
+
+00000044 <_ZL12reverse_byteh>:
+{
+	usiserial_tx_data = tx_data;
+}
+
+static uint8_t reverse_byte (uint8_t x) {
+	x = ((x >> 1) & 0x55) | ((x << 1) & 0xaa);
+  44:	90 e0       	ldi	r25, 0x00	; 0
+  46:	9c 01       	movw	r18, r24
+  48:	35 95       	asr	r19
+  4a:	27 95       	ror	r18
+  4c:	88 0f       	add	r24, r24
+  4e:	99 1f       	adc	r25, r25
+  50:	25 75       	andi	r18, 0x55	; 85
+  52:	8a 7a       	andi	r24, 0xAA	; 170
+  54:	82 2b       	or	r24, r18
+	x = ((x >> 2) & 0x33) | ((x << 2) & 0xcc);
+  56:	28 2f       	mov	r18, r24
+  58:	30 e0       	ldi	r19, 0x00	; 0
+  5a:	c9 01       	movw	r24, r18
+  5c:	95 95       	asr	r25
+  5e:	87 95       	ror	r24
+  60:	95 95       	asr	r25
+  62:	87 95       	ror	r24
+  64:	22 0f       	add	r18, r18
+  66:	33 1f       	adc	r19, r19
+  68:	22 0f       	add	r18, r18
+  6a:	33 1f       	adc	r19, r19
+  6c:	83 73       	andi	r24, 0x33	; 51
+  6e:	2c 7c       	andi	r18, 0xCC	; 204
+  70:	28 2b       	or	r18, r24
+	x = ((x >> 4) & 0x0f) | ((x << 4) & 0xf0);
+  72:	82 2f       	mov	r24, r18
+  74:	90 e0       	ldi	r25, 0x00	; 0
+  76:	82 95       	swap	r24
+  78:	92 95       	swap	r25
+  7a:	90 7f       	andi	r25, 0xF0	; 240
+  7c:	98 27       	eor	r25, r24
+  7e:	80 7f       	andi	r24, 0xF0	; 240
+  80:	98 27       	eor	r25, r24
+  82:	22 95       	swap	r18
+  84:	2f 70       	andi	r18, 0x0F	; 15
+	return x;
+}
+  86:	82 2b       	or	r24, r18
+  88:	08 95       	ret
+
+0000008a <_Z9encodeADChhPh>:
+uint8_t encodedValues[2];  //arr[0] will contain LSN, arr[1] will contain MSN
+
+// function definitions
+void encodeADC(uint8_t channelid, uint8_t adcval, uint8_t encodedvalues[]){
+	uint8_t lower, upper = 0;
+	lower = (adcval & 0x0F) | (channelid  << 4);
+  8a:	90 e0       	ldi	r25, 0x00	; 0
+  8c:	82 95       	swap	r24
+  8e:	92 95       	swap	r25
+  90:	90 7f       	andi	r25, 0xF0	; 240
+  92:	98 27       	eor	r25, r24
+  94:	80 7f       	andi	r24, 0xF0	; 240
+  96:	98 27       	eor	r25, r24
+  98:	96 2f       	mov	r25, r22
+  9a:	9f 70       	andi	r25, 0x0F	; 15
+  9c:	98 2b       	or	r25, r24
+	upper = (adcval >> 4) | (0x80 | (channelid << 4));
+  9e:	70 e0       	ldi	r23, 0x00	; 0
+  a0:	75 95       	asr	r23
+  a2:	67 95       	ror	r22
+  a4:	75 95       	asr	r23
+  a6:	67 95       	ror	r22
+  a8:	75 95       	asr	r23
+  aa:	67 95       	ror	r22
+  ac:	75 95       	asr	r23
+  ae:	67 95       	ror	r22
+  b0:	80 68       	ori	r24, 0x80	; 128
+  b2:	68 2b       	or	r22, r24
+	encodedvalues[0] = lower;
+  b4:	fa 01       	movw	r30, r20
+  b6:	90 83       	st	Z, r25
+	encodedvalues[1] = upper;
+  b8:	61 83       	std	Z+1, r22	; 0x01
+  ba:	08 95       	ret
+
+000000bc <_Z24usiserial_send_availablev>:
+}
+static inline enum USISERIAL_SEND_STATE usiserial_send_get_state(void)
+{
+	return usiserial_send_state;
+  bc:	90 91 63 00 	lds	r25, 0x0063	; 0x800063 <_ZL20usiserial_send_state>
+	usiserial_send_state=state;
+}
+
+bool usiserial_send_available()
+{
+	return usiserial_send_get_state()==AVAILABLE;
+  c0:	81 e0       	ldi	r24, 0x01	; 1
+  c2:	91 11       	cpse	r25, r1
+  c4:	80 e0       	ldi	r24, 0x00	; 0
+}
+  c6:	08 95       	ret
+
+000000c8 <_Z19usiserial_send_byteh>:
+	x = ((x >> 4) & 0x0f) | ((x << 4) & 0xf0);
+	return x;
+}
+
+void usiserial_send_byte(uint8_t data)
+{
+  c8:	cf 93       	push	r28
+	encodedvalues[0] = lower;
+	encodedvalues[1] = upper;
+}
+static inline enum USISERIAL_SEND_STATE usiserial_send_get_state(void)
+{
+	return usiserial_send_state;
+  ca:	90 91 63 00 	lds	r25, 0x0063	; 0x800063 <_ZL20usiserial_send_state>
+	return x;
+}
+
+void usiserial_send_byte(uint8_t data)
+{
+	while (usiserial_send_get_state() != AVAILABLE)
+  ce:	91 11       	cpse	r25, r1
+  d0:	fc cf       	rjmp	.-8      	; 0xca <_Z19usiserial_send_byteh+0x2>
+	return usiserial_send_state;
+}
+
+static inline void usiserial_send_set_state(enum USISERIAL_SEND_STATE state)
+{
+	usiserial_send_state=state;
+  d2:	c1 e0       	ldi	r28, 0x01	; 1
+  d4:	c0 93 63 00 	sts	0x0063, r28	; 0x800063 <_ZL20usiserial_send_state>
+	while (usiserial_send_get_state() != AVAILABLE)
+	{
+		// Spin until we finish sending previous packet
+	};
+	usiserial_send_set_state(FIRST);
+	usiserial_set_tx_data(reverse_byte(data));
+  d8:	b5 df       	rcall	.-150    	; 0x44 <_ZL12reverse_byteh>
+	return usiserial_tx_data;
+}
+
+static inline void usiserial_set_tx_data(uint8_t tx_data)
+{
+	usiserial_tx_data = tx_data;
+  da:	80 93 62 00 	sts	0x0062, r24	; 0x800062 <_ZL17usiserial_tx_data>
+	};
+	usiserial_send_set_state(FIRST);
+	usiserial_set_tx_data(reverse_byte(data));
+
+	// Configure Timer0
+	TCCR0A = (1 << WGM01);   // CTC mode
+  de:	92 e0       	ldi	r25, 0x02	; 2
+  e0:	90 bf       	out	0x30, r25	; 48
+	TCCR0A &= (~((1 << WGM02) | (1 << WGM00)));
+  e2:	80 b7       	in	r24, 0x30	; 48
+  e4:	86 7f       	andi	r24, 0xF6	; 246
+  e6:	80 bf       	out	0x30, r24	; 48
+	TCCR0B = (1 << CS01);                   // Set prescaler to clk /8
+  e8:	93 bf       	out	0x33, r25	; 51
+	TCCR0B &= (~((1 << CS02) | (1 << CS00)));
+  ea:	83 b7       	in	r24, 0x33	; 51
+  ec:	8a 7f       	andi	r24, 0xFA	; 250
+  ee:	83 bf       	out	0x33, r24	; 51
+	GTCCR = 1 << PSR10;                    // Reset prescaler
+  f0:	c3 bd       	out	0x23, r28	; 35
+	OCR0A = 104;                            // Trigger every full bit width
+  f2:	88 e6       	ldi	r24, 0x68	; 104
+  f4:	86 bf       	out	0x36, r24	; 54
+	TCNT0 = 0;                              // Count up from 0
+  f6:	12 be       	out	0x32, r1	; 50
+	return usiserial_send_get_state()==AVAILABLE;
+}
+
+static inline uint8_t usiserial_get_tx_data(void)
+{
+	return usiserial_tx_data;
+  f8:	80 91 62 00 	lds	r24, 0x0062	; 0x800062 <_ZL17usiserial_tx_data>
+	GTCCR = 1 << PSR10;                    // Reset prescaler
+	OCR0A = 104;                            // Trigger every full bit width
+	TCNT0 = 0;                              // Count up from 0
+
+	// Configure USI to send high start bit and 7 bits of data
+	USIDR = (0x00) |                            // Start bit (low)
+  fc:	90 e0       	ldi	r25, 0x00	; 0
+  fe:	95 95       	asr	r25
+ 100:	87 95       	ror	r24
+	(usiserial_get_tx_data() >> 1);         // followed by first 7 bits of serial data
+ 102:	8f b9       	out	0x0f, r24	; 15
+	
+	USICR  = (1 << USIOIE)|                     // Enable USI Counter OVF interrupt.
+	(0 << USIWM1) | (1 << USIWM0)|              // Select three wire mode to ensure USI written to PA5
+	(0 << USICS1) | (1 << USICS0) | (0 << USICLK);  // Select Timer0 Compare match as USI Clock source.
+ 104:	84 e5       	ldi	r24, 0x54	; 84
+ 106:	8d b9       	out	0x0d, r24	; 13
+	
+	DDRA  |= (1 << PA5);                        // Configure USI_DO as output.
+ 108:	8a b3       	in	r24, 0x1a	; 26
+ 10a:	80 62       	ori	r24, 0x20	; 32
+ 10c:	8a bb       	out	0x1a, r24	; 26
+	
+	USISR = (1 << USIOIF) |                       // Clear USI overflow interrupt flag
+	(16 - 8);                             // and set USI counter to count 8 bits
+ 10e:	88 e4       	ldi	r24, 0x48	; 72
+ 110:	8e b9       	out	0x0e, r24	; 14
+}
+ 112:	cf 91       	pop	r28
+ 114:	08 95       	ret
+
+00000116 <__vector_16>:
+
+// USI overflow interrupt indicates we have sent a buffer
+ISR (USI_OVF_vect) {
+ 116:	1f 92       	push	r1
+ 118:	0f 92       	push	r0
+ 11a:	0f b6       	in	r0, 0x3f	; 63
+ 11c:	0f 92       	push	r0
+ 11e:	11 24       	eor	r1, r1
+ 120:	8f 93       	push	r24
+ 122:	9f 93       	push	r25
+	encodedvalues[0] = lower;
+	encodedvalues[1] = upper;
+}
+static inline enum USISERIAL_SEND_STATE usiserial_send_get_state(void)
+{
+	return usiserial_send_state;
+ 124:	80 91 63 00 	lds	r24, 0x0063	; 0x800063 <_ZL20usiserial_send_state>
+	(16 - 8);                             // and set USI counter to count 8 bits
+}
+
+// USI overflow interrupt indicates we have sent a buffer
+ISR (USI_OVF_vect) {
+	if (usiserial_send_get_state() == FIRST)
+ 128:	81 30       	cpi	r24, 0x01	; 1
+ 12a:	81 f4       	brne	.+32     	; 0x14c <__vector_16+0x36>
+	return usiserial_send_state;
+}
+
+static inline void usiserial_send_set_state(enum USISERIAL_SEND_STATE state)
+{
+	usiserial_send_state=state;
+ 12c:	82 e0       	ldi	r24, 0x02	; 2
+ 12e:	80 93 63 00 	sts	0x0063, r24	; 0x800063 <_ZL20usiserial_send_state>
+	return usiserial_send_get_state()==AVAILABLE;
+}
+
+static inline uint8_t usiserial_get_tx_data(void)
+{
+	return usiserial_tx_data;
+ 132:	80 91 62 00 	lds	r24, 0x0062	; 0x800062 <_ZL17usiserial_tx_data>
+// USI overflow interrupt indicates we have sent a buffer
+ISR (USI_OVF_vect) {
+	if (usiserial_send_get_state() == FIRST)
+	{
+		usiserial_send_set_state(SECOND);
+		USIDR = (usiserial_get_tx_data() << 7)  // Send last 1 bit of data
+ 136:	90 e0       	ldi	r25, 0x00	; 0
+ 138:	96 95       	lsr	r25
+ 13a:	98 2f       	mov	r25, r24
+ 13c:	88 27       	eor	r24, r24
+ 13e:	97 95       	ror	r25
+ 140:	87 95       	ror	r24
+		| (0x7F);                           // and stop bits (high)
+ 142:	8f 67       	ori	r24, 0x7F	; 127
+ 144:	8f b9       	out	0x0f, r24	; 15
+		
+		USISR = (1 << USIOIF) |                   // Clear USI overflow interrupt flag
+		(16 - (1 + (STOPBITS)));          // Set USI counter to send last data bit and stop bits
+ 146:	8e e4       	ldi	r24, 0x4E	; 78
+ 148:	8e b9       	out	0x0e, r24	; 14
+ 14a:	0c c0       	rjmp	.+24     	; 0x164 <__stack+0x5>
+	}
+	else
+	{
+		PORTA |= (1 << PA5);                    // Ensure output is high
+ 14c:	8b b3       	in	r24, 0x1b	; 27
+ 14e:	80 62       	ori	r24, 0x20	; 32
+ 150:	8b bb       	out	0x1b, r24	; 27
+		DDRA  |= (1 << PA5);                    // Configure USI_DO as output.
+ 152:	8a b3       	in	r24, 0x1a	; 26
+ 154:	80 62       	ori	r24, 0x20	; 32
+ 156:	8a bb       	out	0x1a, r24	; 26
+		USICR = 0;                            // Disable USI.
+ 158:	1d b8       	out	0x0d, r1	; 13
+		USISR |= (1 << USIOIF);                   // clear interrupt flag
+ 15a:	8e b1       	in	r24, 0x0e	; 14
+ 15c:	80 64       	ori	r24, 0x40	; 64
+ 15e:	8e b9       	out	0x0e, r24	; 14
+	return usiserial_send_state;
+}
+
+static inline void usiserial_send_set_state(enum USISERIAL_SEND_STATE state)
+{
+	usiserial_send_state=state;
+ 160:	10 92 63 00 	sts	0x0063, r1	; 0x800063 <_ZL20usiserial_send_state>
+		USICR = 0;                            // Disable USI.
+		USISR |= (1 << USIOIF);                   // clear interrupt flag
+
+		usiserial_send_set_state(AVAILABLE);
+	}
+}
+ 164:	9f 91       	pop	r25
+ 166:	8f 91       	pop	r24
+ 168:	0f 90       	pop	r0
+ 16a:	0f be       	out	0x3f, r0	; 63
+ 16c:	0f 90       	pop	r0
+ 16e:	1f 90       	pop	r1
+ 170:	18 95       	reti
+
+00000172 <_Z8ADC_Initv>:
+
+void ADC_Init()
+{
+	DDRA &= (~((1 << PA0) | (1 << PA1) | (1 << PA2) | (1 << PA3)));			/* Make PA0,1,2,3 as INPUT */
+ 172:	8a b3       	in	r24, 0x1a	; 26
+ 174:	80 7f       	andi	r24, 0xF0	; 240
+ 176:	8a bb       	out	0x1a, r24	; 26
+	ADCSRA = (1 << ADEN) | (1 << ADPS2) | (1 << ADPS1) | ( 1<< ADPS0);			/* Enable ADC, fr/128  */
+ 178:	87 e8       	ldi	r24, 0x87	; 135
+ 17a:	86 b9       	out	0x06, r24	; 6
+	ADMUX &= (~((1 << REFS1) | (1 << REFS0)));			                  /* Vref: vcc */	
+ 17c:	87 b1       	in	r24, 0x07	; 7
+ 17e:	8f 73       	andi	r24, 0x3F	; 63
+ 180:	87 b9       	out	0x07, r24	; 7
+ 182:	08 95       	ret
+
+00000184 <_Z8ADC_Readh>:
+
+int ADC_Read(uint8_t channel)
+{
+	uint8_t analogvalue = 0;
+	
+	ADMUX = (channel & 0x0F);	/* Set input channel to read */
+ 184:	8f 70       	andi	r24, 0x0F	; 15
+ 186:	87 b9       	out	0x07, r24	; 7
+	ADCSRB |= (1 << ADLAR);		/* left adjust the result */
+ 188:	83 b1       	in	r24, 0x03	; 3
+ 18a:	80 61       	ori	r24, 0x10	; 16
+ 18c:	83 b9       	out	0x03, r24	; 3
+	ADCSRA |= (1 << ADSC);		/* Start conversion */
+ 18e:	86 b1       	in	r24, 0x06	; 6
+ 190:	80 64       	ori	r24, 0x40	; 64
+ 192:	86 b9       	out	0x06, r24	; 6
+	while((ADCSRA & (1 << ADIF)) == 0);	/* Monitor end of conversion interrupt */
+ 194:	34 9b       	sbis	0x06, 4	; 6
+ 196:	fe cf       	rjmp	.-4      	; 0x194 <_Z8ADC_Readh+0x10>
+	//_delay_us(10);
+	analogvalue = ADCH;			/* read adc value*/
+ 198:	85 b1       	in	r24, 0x05	; 5
+	return(analogvalue);			/* Return sampled value*/
+}
+ 19a:	90 e0       	ldi	r25, 0x00	; 0
+ 19c:	08 95       	ret
+
+0000019e <_Z5avg16h>:
+
+uint8_t avg16(uint8_t pin){
+ 19e:	ff 92       	push	r15
+ 1a0:	0f 93       	push	r16
+ 1a2:	1f 93       	push	r17
+ 1a4:	cf 93       	push	r28
+ 1a6:	df 93       	push	r29
+ 1a8:	f8 2e       	mov	r15, r24
+	int value = 0;
+	for(int j = 0; j < 16; j++){
+ 1aa:	c0 e0       	ldi	r28, 0x00	; 0
+ 1ac:	d0 e0       	ldi	r29, 0x00	; 0
+	analogvalue = ADCH;			/* read adc value*/
+	return(analogvalue);			/* Return sampled value*/
+}
+
+uint8_t avg16(uint8_t pin){
+	int value = 0;
+ 1ae:	00 e0       	ldi	r16, 0x00	; 0
+ 1b0:	10 e0       	ldi	r17, 0x00	; 0
+	for(int j = 0; j < 16; j++){
+ 1b2:	c0 31       	cpi	r28, 0x10	; 16
+ 1b4:	d1 05       	cpc	r29, r1
+ 1b6:	34 f4       	brge	.+12     	; 0x1c4 <_Z5avg16h+0x26>
+		value += ADC_Read(pin);
+ 1b8:	8f 2d       	mov	r24, r15
+ 1ba:	e4 df       	rcall	.-56     	; 0x184 <_Z8ADC_Readh>
+ 1bc:	08 0f       	add	r16, r24
+ 1be:	19 1f       	adc	r17, r25
+	return(analogvalue);			/* Return sampled value*/
+}
+
+uint8_t avg16(uint8_t pin){
+	int value = 0;
+	for(int j = 0; j < 16; j++){
+ 1c0:	21 96       	adiw	r28, 0x01	; 1
+ 1c2:	f7 cf       	rjmp	.-18     	; 0x1b2 <_Z5avg16h+0x14>
+		value += ADC_Read(pin);
+	}
+	value /= 16;
+ 1c4:	c8 01       	movw	r24, r16
+ 1c6:	99 23       	and	r25, r25
+ 1c8:	0c f4       	brge	.+2      	; 0x1cc <_Z5avg16h+0x2e>
+ 1ca:	0f 96       	adiw	r24, 0x0f	; 15
+ 1cc:	95 95       	asr	r25
+ 1ce:	87 95       	ror	r24
+ 1d0:	95 95       	asr	r25
+ 1d2:	87 95       	ror	r24
+ 1d4:	95 95       	asr	r25
+ 1d6:	87 95       	ror	r24
+ 1d8:	95 95       	asr	r25
+ 1da:	87 95       	ror	r24
+	return (uint8_t)value;
+}
+ 1dc:	df 91       	pop	r29
+ 1de:	cf 91       	pop	r28
+ 1e0:	1f 91       	pop	r17
+ 1e2:	0f 91       	pop	r16
+ 1e4:	ff 90       	pop	r15
+ 1e6:	08 95       	ret
+
+000001e8 <main>:
+int main(void)
+{
+	DDRA  |= (1 << PA5);
+ 1e8:	8a b3       	in	r24, 0x1a	; 26
+ 1ea:	80 62       	ori	r24, 0x20	; 32
+ 1ec:	8a bb       	out	0x1a, r24	; 26
+	PORTA |= (1 << PA5); 
+ 1ee:	8b b3       	in	r24, 0x1b	; 27
+ 1f0:	80 62       	ori	r24, 0x20	; 32
+ 1f2:	8b bb       	out	0x1b, r24	; 27
+	sei();
+ 1f4:	78 94       	sei
+	ADC_Init();
+ 1f6:	bd df       	rcall	.-134    	; 0x172 <_Z8ADC_Initv>
+    
+    while (1) 
+    {
+		uint8_t r,g,b,i = 0;
+	
+		g = avg16(0x01);
+ 1f8:	81 e0       	ldi	r24, 0x01	; 1
+ 1fa:	d1 df       	rcall	.-94     	; 0x19e <_Z5avg16h>
+		encodeADC(0x01,g,encodedValues);
+ 1fc:	40 e6       	ldi	r20, 0x60	; 96
+ 1fe:	50 e0       	ldi	r21, 0x00	; 0
+ 200:	68 2f       	mov	r22, r24
+ 202:	81 e0       	ldi	r24, 0x01	; 1
+ 204:	42 df       	rcall	.-380    	; 0x8a <_Z9encodeADChhPh>
+		while (!usiserial_send_available())
+ 206:	5a df       	rcall	.-332    	; 0xbc <_Z24usiserial_send_availablev>
+ 208:	88 23       	and	r24, r24
+ 20a:	e9 f3       	breq	.-6      	; 0x206 <main+0x1e>
+		{// Wait for last send to complete
+		}
+		usiserial_send_byte(encodedValues[0]);
+ 20c:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 210:	5b df       	rcall	.-330    	; 0xc8 <_Z19usiserial_send_byteh>
+		while (!usiserial_send_available())
+ 212:	54 df       	rcall	.-344    	; 0xbc <_Z24usiserial_send_availablev>
+ 214:	88 23       	and	r24, r24
+ 216:	e9 f3       	breq	.-6      	; 0x212 <main+0x2a>
+		{// Wait for last send to complete
+		}
+		usiserial_send_byte(encodedValues[1]);			
+ 218:	80 91 61 00 	lds	r24, 0x0061	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
+ 21c:	55 df       	rcall	.-342    	; 0xc8 <_Z19usiserial_send_byteh>
+				
+		b = avg16(0x02);
+ 21e:	82 e0       	ldi	r24, 0x02	; 2
+ 220:	be df       	rcall	.-132    	; 0x19e <_Z5avg16h>
+		encodeADC(0x02,b,encodedValues);
+ 222:	40 e6       	ldi	r20, 0x60	; 96
+ 224:	50 e0       	ldi	r21, 0x00	; 0
+ 226:	68 2f       	mov	r22, r24
+ 228:	82 e0       	ldi	r24, 0x02	; 2
+ 22a:	2f df       	rcall	.-418    	; 0x8a <_Z9encodeADChhPh>
+		while (!usiserial_send_available())
+ 22c:	47 df       	rcall	.-370    	; 0xbc <_Z24usiserial_send_availablev>
+ 22e:	88 23       	and	r24, r24
+ 230:	e9 f3       	breq	.-6      	; 0x22c <main+0x44>
+		{// Wait for last send to complete
+		}
+		usiserial_send_byte(encodedValues[0]);
+ 232:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 236:	48 df       	rcall	.-368    	; 0xc8 <_Z19usiserial_send_byteh>
+		while (!usiserial_send_available())
+ 238:	41 df       	rcall	.-382    	; 0xbc <_Z24usiserial_send_availablev>
+ 23a:	88 23       	and	r24, r24
+ 23c:	e9 f3       	breq	.-6      	; 0x238 <main+0x50>
+		{// Wait for last send to complete
+		}
+		usiserial_send_byte(encodedValues[1]);
+ 23e:	80 91 61 00 	lds	r24, 0x0061	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
+ 242:	42 df       	rcall	.-380    	; 0xc8 <_Z19usiserial_send_byteh>
+
+		i = avg16(0x03);
+ 244:	83 e0       	ldi	r24, 0x03	; 3
+ 246:	ab df       	rcall	.-170    	; 0x19e <_Z5avg16h>
+		encodeADC(0x03,i,encodedValues);
+ 248:	40 e6       	ldi	r20, 0x60	; 96
+ 24a:	50 e0       	ldi	r21, 0x00	; 0
+ 24c:	68 2f       	mov	r22, r24
+ 24e:	83 e0       	ldi	r24, 0x03	; 3
+ 250:	1c df       	rcall	.-456    	; 0x8a <_Z9encodeADChhPh>
+		while (!usiserial_send_available())
+ 252:	34 df       	rcall	.-408    	; 0xbc <_Z24usiserial_send_availablev>
+ 254:	88 23       	and	r24, r24
+ 256:	e9 f3       	breq	.-6      	; 0x252 <main+0x6a>
+		{// Wait for last send to complete
+		}
+		usiserial_send_byte(encodedValues[0]);
+ 258:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 25c:	35 df       	rcall	.-406    	; 0xc8 <_Z19usiserial_send_byteh>
+		while (!usiserial_send_available())
+ 25e:	2e df       	rcall	.-420    	; 0xbc <_Z24usiserial_send_availablev>
+ 260:	88 23       	and	r24, r24
+ 262:	e9 f3       	breq	.-6      	; 0x25e <main+0x76>
+		{// Wait for last send to complete
+		}
+		usiserial_send_byte(encodedValues[1]);    
+ 264:	80 91 61 00 	lds	r24, 0x0061	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
+ 268:	2f df       	rcall	.-418    	; 0xc8 <_Z19usiserial_send_byteh>
+	sei();
+	ADC_Init();
+	
+	//int r,g,b,i = 0;
+    
+    while (1) 
+ 26a:	c6 cf       	rjmp	.-116    	; 0x1f8 <main+0x10>
+
+0000026c <_exit>:
+ 26c:	f8 94       	cli
+
+0000026e <__stop_program>:
+ 26e:	ff cf       	rjmp	.-2      	; 0x26e <__stop_program>

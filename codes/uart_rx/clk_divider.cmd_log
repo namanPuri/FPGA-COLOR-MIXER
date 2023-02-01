@@ -1,0 +1,6 @@
+xst -intstyle ise -ifn "F:/CEDT projects/color_mixer_fpga/codes/uart_rx/clk_divider.xst" -ofn "F:/CEDT projects/color_mixer_fpga/codes/uart_rx/clk_divider.syr" 
+xst -intstyle ise -ifn "F:/CEDT projects/color_mixer_fpga/codes/uart_rx/clk_divider.xst" -ofn "F:/CEDT projects/color_mixer_fpga/codes/uart_rx/clk_divider.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc3s50an-tqg144-4 "clk_divider.ngc" clk_divider.ngd  
+map -intstyle ise -p xc3s50an-tqg144-4 -cm area -ir off -pr off -c 100 -o clk_divider_map.ncd clk_divider.ngd clk_divider.pcf 
+par -w -intstyle ise -ol high -t 1 clk_divider_map.ncd clk_divider.ncd clk_divider.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml clk_divider.twx clk_divider.ncd -o clk_divider.twr clk_divider.pcf 

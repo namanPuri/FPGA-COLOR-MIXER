@@ -1,0 +1,5 @@
+xst -intstyle ise -ifn "F:/CEDT projects/color_mixer_fpga/references/clock_divideBy3/mod3counter.xst" -ofn "F:/CEDT projects/color_mixer_fpga/references/clock_divideBy3/mod3counter.syr" 
+xst -intstyle ise -ifn "F:/CEDT projects/color_mixer_fpga/references/clock_divideBy3/mod3counter.xst" -ofn "F:/CEDT projects/color_mixer_fpga/references/clock_divideBy3/mod3counter.syr" 
+xst -intstyle ise -ifn "F:/CEDT projects/color_mixer_fpga/references/clock_divideBy3/mod3counter.xst" -ofn "F:/CEDT projects/color_mixer_fpga/references/clock_divideBy3/mod3counter.syr" 
+xst -intstyle ise -ifn "F:/CEDT projects/color_mixer_fpga/references/clock_divideBy3/mod3counter.xst" -ofn "F:/CEDT projects/color_mixer_fpga/references/clock_divideBy3/mod3counter.syr" 
+xst -intstyle ise -ifn "F:/CEDT projects/color_mixer_fpga/references/clock_divideBy3/mod3counter.xst" -ofn "F:/CEDT projects/color_mixer_fpga/references/clock_divideBy3/mod3counter.syr" 

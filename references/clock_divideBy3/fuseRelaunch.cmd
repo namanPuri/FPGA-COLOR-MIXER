@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -o "F:/CEDT projects/color_mixer_fpga/references/clock_divideBy3/clkBy3_isim_beh.exe" -prj "F:/CEDT projects/color_mixer_fpga/references/clock_divideBy3/clkBy3_beh.prj" "work.clkBy3" "work.glbl" 

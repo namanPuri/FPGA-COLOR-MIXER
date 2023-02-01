@@ -1,0 +1,5 @@
+set -tmpdir "F:/CEDT projects/color_mixer_fpga/codes/uart_rx/xst/projnav.tmp"
+set -xsthdpdir "F:/CEDT projects/color_mixer_fpga/codes/uart_rx/xst"
+elaborate
+-ifn datacounter.prj
+-ifmt mixed

@@ -1,0 +1,7 @@
+MO clk_divider NULL uart_rx_code.v vlg70/clk__divider.bin 1621064370
+MO uart_rx_code NULL uart_rx_code.v vlg4B/uart__rx__code.bin 1621064370
+MO mux NULL uart_rx_code.v vlg66/mux.bin 1621064370
+MO ram NULL uart_rx_code.v vlg74/ram.bin 1621064370
+MO baudrate NULL uart_rx_code.v vlg4C/baudrate.bin 1621064370
+MO comparator NULL uart_rx_code.v vlg6C/comparator.bin 1621064370
+MO datacounter NULL uart_rx_code.v vlg1A/datacounter.bin 1621064370

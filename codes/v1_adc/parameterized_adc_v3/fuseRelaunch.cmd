@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -o "F:/CEDT projects/color_mixer_fpga/codes/v1_adc/parameterized_adc_v2/adc_isim_beh.exe" -prj "F:/CEDT projects/color_mixer_fpga/codes/v1_adc/parameterized_adc_v2/adc_beh.prj" "work.adc" "work.glbl" 

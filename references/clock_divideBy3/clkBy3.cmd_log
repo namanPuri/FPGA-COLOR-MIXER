@@ -1,0 +1,23 @@
+xst -intstyle ise -ifn "F:/CEDT projects/color_mixer_fpga/references/clock_divideBy3/clkBy3.xst" -ofn "F:/CEDT projects/color_mixer_fpga/references/clock_divideBy3/clkBy3.syr" 
+xst -intstyle ise -ifn "F:/CEDT projects/color_mixer_fpga/references/clock_divideBy3/clkBy3.xst" -ofn "F:/CEDT projects/color_mixer_fpga/references/clock_divideBy3/clkBy3.syr" 
+xst -intstyle ise -ifn "F:/CEDT projects/color_mixer_fpga/references/clock_divideBy3/clkBy3.xst" -ofn "F:/CEDT projects/color_mixer_fpga/references/clock_divideBy3/clkBy3.syr" 
+xst -intstyle ise -ifn "F:/CEDT projects/color_mixer_fpga/references/clock_divideBy3/clkBy3.xst" -ofn "F:/CEDT projects/color_mixer_fpga/references/clock_divideBy3/clkBy3.syr" 
+xst -intstyle ise -ifn "F:/CEDT projects/color_mixer_fpga/references/clock_divideBy3/clkBy3.xst" -ofn "F:/CEDT projects/color_mixer_fpga/references/clock_divideBy3/clkBy3.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc3s50an-tqg144-4 "clkBy3.ngc" clkBy3.ngd  
+map -intstyle ise -p xc3s50an-tqg144-4 -cm area -ir off -pr off -c 100 -o clkBy3_map.ncd clkBy3.ngd clkBy3.pcf 
+par -w -intstyle ise -ol high -t 1 clkBy3_map.ncd clkBy3.ncd clkBy3.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml clkBy3.twx clkBy3.ncd -o clkBy3.twr clkBy3.pcf 
+bitgen -intstyle ise -f clkBy3.ut clkBy3.ncd 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc clkBy3.ucf -p xc3s50an-tqg144-4 "clkBy3.ngc" clkBy3.ngd  
+map -intstyle ise -p xc3s50an-tqg144-4 -cm area -ir off -pr off -c 100 -o clkBy3_map.ncd clkBy3.ngd clkBy3.pcf 
+par -w -intstyle ise -ol high -t 1 clkBy3_map.ncd clkBy3.ncd clkBy3.pcf 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc clkBy3.ucf -p xc3s50an-tqg144-4 "clkBy3.ngc" clkBy3.ngd  
+map -intstyle ise -p xc3s50an-tqg144-4 -cm area -ir off -pr off -c 100 -o clkBy3_map.ncd clkBy3.ngd clkBy3.pcf 
+par -w -intstyle ise -ol high -t 1 clkBy3_map.ncd clkBy3.ncd clkBy3.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml clkBy3.twx clkBy3.ncd -o clkBy3.twr clkBy3.pcf -ucf clkBy3.ucf 
+bitgen -intstyle ise -f clkBy3.ut clkBy3.ncd 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc clkBy3.ucf -p xc3s50an-tqg144-4 "clkBy3.ngc" clkBy3.ngd  
+map -intstyle ise -p xc3s50an-tqg144-4 -cm area -ir off -pr off -c 100 -o clkBy3_map.ncd clkBy3.ngd clkBy3.pcf 
+par -w -intstyle ise -ol high -t 1 clkBy3_map.ncd clkBy3.ncd clkBy3.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml clkBy3.twx clkBy3.ncd -o clkBy3.twr clkBy3.pcf -ucf clkBy3.ucf 
+bitgen -intstyle ise -f clkBy3.ut clkBy3.ncd 

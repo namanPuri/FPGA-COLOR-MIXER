@@ -1,0 +1,240 @@
+Release 14.7 par P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+DESKTOP-TQF71P7::  Sat Jul 10 17:11:30 2021
+
+par -w -intstyle ise -ol high -t 1 adc4pwm_map.ncd adc4pwm.ncd adc4pwm.pcf 
+
+
+Constraints file: adc4pwm.pcf.
+Loading device for application Rf_Device from file '3s50a.nph' in environment C:\Xilinx\14.7\ISE_DS\ISE\.
+   "adc4pwm" is an NCD, version 3.2, device xc3s50an, package tqg144, speed -4
+
+Initializing temperature to 85.000 Celsius. (default - Range: 0.000 to 85.000 Celsius)
+Initializing voltage to 1.140 Volts. (default - Range: 1.140 to 1.260 Volts)
+
+
+Device speed data version:  "PRODUCTION 1.42 2013-10-13".
+
+
+Design Summary Report:
+
+ Number of External IOBs                          14 out of 108    12%
+
+   Number of External Input IOBs                  6
+
+      Number of External Input IBUFs              6
+        Number of LOCed External Input IBUFs      6 out of 6     100%
+
+
+   Number of External Output IOBs                 8
+
+      Number of External Output IOBs              8
+        Number of LOCed External Output IOBs      8 out of 8     100%
+
+
+   Number of External Bidir IOBs                  0
+
+
+   Number of BSCANs                          1 out of 1     100%
+   Number of BUFGMUXs                        3 out of 24     12%
+   Number of RAMB16BWEs                      1 out of 3      33%
+   Number of Slices                        358 out of 704    50%
+      Number of SLICEMs                     53 out of 352    15%
+
+
+
+Overall effort level (-ol):   High 
+Placer effort level (-pl):    High 
+Placer cost table entry (-t): 1
+Router effort level (-rl):    High 
+
+Starting initial Timing Analysis.  REAL time: 2 secs 
+Finished initial Timing Analysis.  REAL time: 2 secs 
+
+
+Starting Placer
+Total REAL time at the beginning of Placer: 2 secs 
+Total CPU  time at the beginning of Placer: 2 secs 
+
+Phase 1.1  Initial Placement Analysis
+Phase 1.1  Initial Placement Analysis (Checksum:1905ec81) REAL time: 2 secs 
+
+Phase 2.7  Design Feasibility Check
+Phase 2.7  Design Feasibility Check (Checksum:1905ec81) REAL time: 2 secs 
+
+Phase 3.31  Local Placement Optimization
+Phase 3.31  Local Placement Optimization (Checksum:2781da09) REAL time: 2 secs 
+
+Phase 4.2  Initial Clock and IO Placement
+
+Phase 4.2  Initial Clock and IO Placement (Checksum:372f49af) REAL time: 2 secs 
+
+Phase 5.30  Global Clock Region Assignment
+Phase 5.30  Global Clock Region Assignment (Checksum:372f49af) REAL time: 2 secs 
+
+Phase 6.36  Local Placement Optimization
+Phase 6.36  Local Placement Optimization (Checksum:372f49af) REAL time: 2 secs 
+
+Phase 7.8  Global Placement
+....
+..........................
+..........
+...........
+Phase 7.8  Global Placement (Checksum:9268becb) REAL time: 3 secs 
+
+Phase 8.5  Local Placement Optimization
+Phase 8.5  Local Placement Optimization (Checksum:9268becb) REAL time: 3 secs 
+
+Phase 9.18  Placement Optimization
+Phase 9.18  Placement Optimization (Checksum:b47d1604) REAL time: 3 secs 
+
+Phase 10.5  Local Placement Optimization
+Phase 10.5  Local Placement Optimization (Checksum:b47d1604) REAL time: 3 secs 
+
+Total REAL time to Placer completion: 3 secs 
+Total CPU  time to Placer completion: 3 secs 
+Writing design to file adc4pwm.ncd
+
+
+
+Starting Router
+
+
+Phase  1  : 2175 unrouted;      REAL time: 4 secs 
+
+Phase  2  : 1786 unrouted;      REAL time: 4 secs 
+
+Phase  3  : 263 unrouted;      REAL time: 4 secs 
+
+Phase  4  : 263 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 4 secs 
+
+Phase  5  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 4 secs 
+
+Updating file: adc4pwm.ncd with current fully routed design.
+
+Phase  6  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 5 secs 
+
+Phase  7  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 5 secs 
+
+Phase  8  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 5 secs 
+WARNING:Route:455 - CLK Net:clk64 may have excessive skew because 
+      5 CLK pins and 1 NON_CLK pins failed to route using a CLK template.
+WARNING:Route:455 - CLK Net:green/present_state_FSM_FFd1 may have excessive skew because 
+      0 CLK pins and 3 NON_CLK pins failed to route using a CLK template.
+WARNING:Route:455 - CLK Net:intensity/present_state_FSM_FFd1 may have excessive skew because 
+      3 CLK pins and 3 NON_CLK pins failed to route using a CLK template.
+WARNING:Route:455 - CLK Net:blue/present_state_FSM_FFd1 may have excessive skew because 
+      0 CLK pins and 3 NON_CLK pins failed to route using a CLK template.
+WARNING:Route:455 - CLK Net:icon_control0<13> may have excessive skew because 
+      1 CLK pins and 3 NON_CLK pins failed to route using a CLK template.
+WARNING:Route:455 - CLK Net:red/present_state_FSM_FFd1 may have excessive skew because 
+      0 CLK pins and 3 NON_CLK pins failed to route using a CLK template.
+
+Total REAL time to Router completion: 5 secs 
+Total CPU time to Router completion: 4 secs 
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+Generating "PAR" statistics.
+
+**************************
+Generating Clock Report
+**************************
+
++---------------------+--------------+------+------+------------+-------------+
+|        Clock Net    |   Resource   |Locked|Fanout|Net Skew(ns)|Max Delay(ns)|
++---------------------+--------------+------+------+------------+-------------+
+|    icon_control0<0> | BUFGMUX_X2Y11| No   |   89 |  0.112     |  0.570      |
++---------------------+--------------+------+------+------------+-------------+
+|           clk_BUFGP |  BUFGMUX_X1Y0| No   |  146 |  0.127     |  0.585      |
++---------------------+--------------+------+------+------------+-------------+
+|              clk256 | BUFGMUX_X1Y10| No   |   17 |  0.050     |  0.543      |
++---------------------+--------------+------+------+------------+-------------+
+|U_icon_pro/U0/iUPDAT |              |      |      |            |             |
+|               E_OUT |         Local|      |    1 |  0.000     |  1.914      |
++---------------------+--------------+------+------+------------+-------------+
+|               clk64 |         Local|      |    6 |  0.275     |  1.396      |
++---------------------+--------------+------+------+------------+-------------+
+|green/present_state_ |              |      |      |            |             |
+|            FSM_FFd1 |         Local|      |    7 |  0.007     |  0.771      |
++---------------------+--------------+------+------+------------+-------------+
+|intensity/present_st |              |      |      |            |             |
+|        ate_FSM_FFd1 |         Local|      |    6 |  0.013     |  1.007      |
++---------------------+--------------+------+------+------------+-------------+
+|blue/present_state_F |              |      |      |            |             |
+|             SM_FFd1 |         Local|      |    7 |  0.010     |  0.841      |
++---------------------+--------------+------+------+------------+-------------+
+|   icon_control0<13> |         Local|      |    4 |  0.000     |  1.180      |
++---------------------+--------------+------+------+------------+-------------+
+|red/present_state_FS |              |      |      |            |             |
+|              M_FFd1 |         Local|      |    7 |  0.008     |  0.781      |
++---------------------+--------------+------+------+------------+-------------+
+
+* Net Skew is the difference between the minimum and maximum routing
+only delays for the net. Note this is different from Clock Skew which
+is reported in TRCE timing report. Clock Skew is the difference between
+the minimum and maximum path delays which includes logic delays.
+
+* The fanout is the number of component pins not the individual BEL loads,
+for example SLICE loads not FF loads.
+
+Timing Score: 0 (Setup: 0, Hold: 0, Component Switching Limit: 0)
+
+Number of Timing Constraints that were not applied: 2
+
+Asterisk (*) preceding a constraint indicates it was not met.
+   This may be due to a setup or hold violation.
+
+----------------------------------------------------------------------------------------------------------
+  Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
+                                            |             |    Slack   | Achievable | Errors |    Score   
+----------------------------------------------------------------------------------------------------------
+  TS_U_TO_U = MAXDELAY FROM TIMEGRP "U_CLK" | SETUP       |    13.381ns|     1.619ns|       0|           0
+   TO TIMEGRP "U_CLK" 15 ns                 | HOLD        |     1.160ns|            |       0|           0
+----------------------------------------------------------------------------------------------------------
+  PATH "TS_D2_TO_T2_ila_pro_0_path" TIG     | SETUP       |         N/A|     6.892ns|     N/A|           0
+----------------------------------------------------------------------------------------------------------
+  PATH "TS_J2_TO_D2_ila_pro_0_path" TIG     | N/A         |         N/A|         N/A|     N/A|         N/A
+----------------------------------------------------------------------------------------------------------
+  PATH "TS_J3_TO_D2_ila_pro_0_path" TIG     | N/A         |         N/A|         N/A|     N/A|         N/A
+----------------------------------------------------------------------------------------------------------
+  PATH "TS_J4_TO_D2_ila_pro_0_path" TIG     | MAXDELAY    |         N/A|     5.323ns|     N/A|           0
+----------------------------------------------------------------------------------------------------------
+
+
+All constraints were met.
+INFO:Timing:2761 - N/A entries in the Constraints List may indicate that the 
+   constraint is not analyzed due to the following: No paths covered by this 
+   constraint; Other constraints intersect with this constraint; or This 
+   constraint was disabled by a Path Tracing Control. Please run the Timespec 
+   Interaction Report (TSI) via command line (trce tsi) or Timing Analyzer GUI.
+
+
+Generating Pad Report.
+
+All signals are completely routed.
+
+Total REAL time to PAR completion: 5 secs 
+Total CPU time to PAR completion: 4 secs 
+
+Peak Memory Usage:  4417 MB
+
+Placement: Completed - No errors found.
+Routing: Completed - No errors found.
+Timing: Completed - No errors found.
+
+Number of error messages: 0
+Number of warning messages: 6
+Number of info messages: 0
+
+Writing design to file adc4pwm.ncd
+
+
+
+PAR done!

@@ -1,0 +1,1 @@
+xst -intstyle ise -ifn "F:/CEDT projects/color_mixer_fpga/codes/uart_rx/mux.xst" -ofn "F:/CEDT projects/color_mixer_fpga/codes/uart_rx/mux.syr" 

@@ -1,0 +1,29 @@
+Command line:
+   adc4pwm_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  56236
+
+Sun May 02 21:26:52 2021
+
+
+ Elaboration Time: 0.046875 sec
+
+ Current Memory Usage: 5149.64 Meg
+
+ Total Signals          : 99
+ Total Nets             : 109
+ Total Signal Drivers   : 43
+ Total Blocks           : 23
+ Total Primitive Blocks : 18
+ Total Processes        : 75
+ Total Traceable Variables  : 99
+ Total Scalar Nets and Variables : 949
+Total Line Count : 239
+
+ Total Simulation Time: 0.140625 sec
+
+ Current Memory Usage: 4677.78 Meg
+
+Mon May 03 21:33:59 2021
+

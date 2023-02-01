@@ -1,0 +1,834 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 1.34 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 1.35 secs
+ 
+--> Reading design: adc4pwm.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "adc4pwm.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "adc4pwm"
+Output Format                      : NGC
+Target Device                      : xc3s50an-4-tqg144
+
+---- Source Options
+Top Module Name                    : adc4pwm
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "adc.v" in library work
+Module <adc4pwm> compiled
+Module <adc> compiled
+Module <delay10us> compiled
+Module <adc_counter> compiled
+Module <latch> compiled
+Module <clk_divider> compiled
+Module <pwm> compiled
+No errors in compilation
+Analysis of file <"adc4pwm.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <adc4pwm> in library <work>.
+
+Analyzing hierarchy for module <clk_divider> in library <work> with parameters.
+	N = "00000000000000000000000000100111"
+	WIDTH = "00000000000000000000000000000110"
+
+Analyzing hierarchy for module <adc> in library <work> with parameters.
+	N = "00000000000000000000000000001000"
+	S0 = "00"
+	S1 = "01"
+	S2 = "10"
+
+Analyzing hierarchy for module <adc> in library <work> with parameters.
+	N = "00000000000000000000000000000110"
+	S0 = "00"
+	S1 = "01"
+	S2 = "10"
+
+Analyzing hierarchy for module <delay10us> in library <work>.
+
+Analyzing hierarchy for module <adc_counter> in library <work> with parameters.
+	N = "00000000000000000000000000001000"
+
+Analyzing hierarchy for module <latch> in library <work> with parameters.
+	N = "00000000000000000000000000001000"
+
+Analyzing hierarchy for module <pwm> in library <work> with parameters.
+	N = "00000000000000000000000000001000"
+
+Analyzing hierarchy for module <adc_counter> in library <work> with parameters.
+	N = "00000000000000000000000000000110"
+
+Analyzing hierarchy for module <latch> in library <work> with parameters.
+	N = "00000000000000000000000000000110"
+
+Analyzing hierarchy for module <pwm> in library <work> with parameters.
+	N = "00000000000000000000000000000110"
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <adc4pwm>.
+Module <adc4pwm> is correct for synthesis.
+ 
+Analyzing module <clk_divider> in library <work>.
+	N = 32'sb00000000000000000000000000100111
+	WIDTH = 32'sb00000000000000000000000000000110
+Module <clk_divider> is correct for synthesis.
+ 
+Analyzing module <adc.1> in library <work>.
+	N = 32'sb00000000000000000000000000001000
+	S0 = 2'b00
+	S1 = 2'b01
+	S2 = 2'b10
+Module <adc.1> is correct for synthesis.
+ 
+Analyzing module <delay10us> in library <work>.
+Module <delay10us> is correct for synthesis.
+ 
+Analyzing module <adc_counter.1> in library <work>.
+	N = 32'sb00000000000000000000000000001000
+Module <adc_counter.1> is correct for synthesis.
+ 
+Analyzing module <latch.1> in library <work>.
+	N = 32'sb00000000000000000000000000001000
+Module <latch.1> is correct for synthesis.
+ 
+Analyzing module <pwm.1> in library <work>.
+	N = 32'sb00000000000000000000000000001000
+Module <pwm.1> is correct for synthesis.
+ 
+Analyzing module <adc.2> in library <work>.
+	N = 32'sb00000000000000000000000000000110
+	S0 = 2'b00
+	S1 = 2'b01
+	S2 = 2'b10
+Module <adc.2> is correct for synthesis.
+ 
+Analyzing module <adc_counter.2> in library <work>.
+	N = 32'sb00000000000000000000000000000110
+Module <adc_counter.2> is correct for synthesis.
+ 
+Analyzing module <latch.2> in library <work>.
+	N = 32'sb00000000000000000000000000000110
+Module <latch.2> is correct for synthesis.
+ 
+Analyzing module <pwm.2> in library <work>.
+	N = 32'sb00000000000000000000000000000110
+Module <pwm.2> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <clk_divider>.
+    Related source file is "adc.v".
+    Found 6-bit comparator greater for signal <clk_out1$cmp_gt0000> created at line 182.
+    Found 6-bit comparator greater for signal <clk_out1$cmp_gt0001> created at line 182.
+    Found 2-bit up counter for signal <count>.
+    Found 6-bit up counter for signal <neg_count>.
+    Found 6-bit up counter for signal <pos_count>.
+    Summary:
+	inferred   3 Counter(s).
+	inferred   2 Comparator(s).
+Unit <clk_divider> synthesized.
+
+
+Synthesizing Unit <delay10us>.
+    Related source file is "adc.v".
+    Found 1-bit register for signal <of>.
+    Found 4-bit up counter for signal <count>.
+    Summary:
+	inferred   1 Counter(s).
+	inferred   1 D-type flip-flop(s).
+Unit <delay10us> synthesized.
+
+
+Synthesizing Unit <adc_counter_1>.
+    Related source file is "adc.v".
+    Found 1-bit register for signal <of>.
+    Found 8-bit up counter for signal <count>.
+    Summary:
+	inferred   1 Counter(s).
+	inferred   1 D-type flip-flop(s).
+Unit <adc_counter_1> synthesized.
+
+
+Synthesizing Unit <latch_1>.
+    Related source file is "adc.v".
+    Found 8-bit register for signal <out>.
+    Summary:
+	inferred   8 D-type flip-flop(s).
+Unit <latch_1> synthesized.
+
+
+Synthesizing Unit <pwm_1>.
+    Related source file is "adc.v".
+    Found 8-bit up counter for signal <count>.
+    Found 8-bit comparator less for signal <pwm_out$cmp_lt0000> created at line 204.
+    Summary:
+	inferred   1 Counter(s).
+	inferred   1 Comparator(s).
+Unit <pwm_1> synthesized.
+
+
+Synthesizing Unit <adc_counter_2>.
+    Related source file is "adc.v".
+    Found 1-bit register for signal <of>.
+    Found 6-bit up counter for signal <count>.
+    Summary:
+	inferred   1 Counter(s).
+	inferred   1 D-type flip-flop(s).
+Unit <adc_counter_2> synthesized.
+
+
+Synthesizing Unit <latch_2>.
+    Related source file is "adc.v".
+    Found 6-bit register for signal <out>.
+    Summary:
+	inferred   6 D-type flip-flop(s).
+Unit <latch_2> synthesized.
+
+
+Synthesizing Unit <pwm_2>.
+    Related source file is "adc.v".
+    Found 6-bit up counter for signal <count>.
+    Found 6-bit comparator less for signal <pwm_out$cmp_lt0000> created at line 204.
+    Summary:
+	inferred   1 Counter(s).
+	inferred   1 Comparator(s).
+Unit <pwm_2> synthesized.
+
+
+Synthesizing Unit <adc_1>.
+    Related source file is "adc.v".
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <present_state> of Case statement line 71 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+   	- add an 'INIT' attribute on signal <present_state> (optimization is then done without any risk)
+   	- use the attribute 'signal_encoding user' to avoid onehot optimization
+   	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
+    Using one-hot encoding for signal <present_state>.
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <present_state> of Case statement line 89 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+   	- add an 'INIT' attribute on signal <present_state> (optimization is then done without any risk)
+   	- use the attribute 'signal_encoding user' to avoid onehot optimization
+   	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <present_state> of Case statement line 89 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+   	- add an 'INIT' attribute on signal <present_state> (optimization is then done without any risk)
+   	- use the attribute 'signal_encoding user' to avoid onehot optimization
+   	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <present_state> of Case statement line 89 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+   	- add an 'INIT' attribute on signal <present_state> (optimization is then done without any risk)
+   	- use the attribute 'signal_encoding user' to avoid onehot optimization
+   	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
+    Found 3-bit register for signal <present_state>.
+Unit <adc_1> synthesized.
+
+
+Synthesizing Unit <adc_2>.
+    Related source file is "adc.v".
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <present_state> of Case statement line 71 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+   	- add an 'INIT' attribute on signal <present_state> (optimization is then done without any risk)
+   	- use the attribute 'signal_encoding user' to avoid onehot optimization
+   	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
+    Using one-hot encoding for signal <present_state>.
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <present_state> of Case statement line 89 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+   	- add an 'INIT' attribute on signal <present_state> (optimization is then done without any risk)
+   	- use the attribute 'signal_encoding user' to avoid onehot optimization
+   	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <present_state> of Case statement line 89 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+   	- add an 'INIT' attribute on signal <present_state> (optimization is then done without any risk)
+   	- use the attribute 'signal_encoding user' to avoid onehot optimization
+   	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <present_state> of Case statement line 89 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+   	- add an 'INIT' attribute on signal <present_state> (optimization is then done without any risk)
+   	- use the attribute 'signal_encoding user' to avoid onehot optimization
+   	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
+    Found 3-bit register for signal <present_state>.
+Unit <adc_2> synthesized.
+
+
+Synthesizing Unit <adc4pwm>.
+    Related source file is "adc.v".
+Unit <adc4pwm> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Counters                                             : 15
+ 2-bit up counter                                      : 1
+ 4-bit up counter                                      : 4
+ 6-bit up counter                                      : 4
+ 8-bit up counter                                      : 6
+# Registers                                            : 16
+ 1-bit register                                        : 8
+ 3-bit register                                        : 4
+ 6-bit register                                        : 1
+ 8-bit register                                        : 3
+# Comparators                                          : 6
+ 6-bit comparator greater                              : 2
+ 6-bit comparator less                                 : 1
+ 8-bit comparator less                                 : 3
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Counters                                             : 15
+ 2-bit up counter                                      : 1
+ 4-bit up counter                                      : 4
+ 6-bit up counter                                      : 4
+ 8-bit up counter                                      : 6
+# Registers                                            : 50
+ Flip-Flops                                            : 50
+# Comparators                                          : 6
+ 6-bit comparator greater                              : 2
+ 6-bit comparator less                                 : 1
+ 8-bit comparator less                                 : 3
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <adc4pwm> ...
+
+Optimizing unit <clk_divider> ...
+
+Optimizing unit <latch_1> ...
+
+Optimizing unit <adc_1> ...
+
+Optimizing unit <adc_2> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block adc4pwm, actual ratio is 14.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 140
+ Flip-Flops                                            : 140
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : adc4pwm.ngr
+Top Level Output File Name         : adc4pwm
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 14
+
+Cell Usage :
+# BELS                             : 307
+#      GND                         : 1
+#      INV                         : 22
+#      LUT1                        : 42
+#      LUT2                        : 54
+#      LUT3                        : 25
+#      LUT3_D                      : 4
+#      LUT3_L                      : 2
+#      LUT4                        : 25
+#      LUT4_D                      : 6
+#      LUT4_L                      : 1
+#      MUXCY                       : 72
+#      MUXF5                       : 4
+#      VCC                         : 1
+#      XORCY                       : 48
+# FlipFlops/Latches                : 140
+#      FD                          : 60
+#      FDC                         : 8
+#      FDCE                        : 34
+#      FDE                         : 4
+#      FDP                         : 4
+#      FDR                         : 14
+#      FDRE                        : 16
+# Clock Buffers                    : 2
+#      BUFG                        : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 13
+#      IBUF                        : 5
+#      OBUF                        : 8
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s50antqg144-4 
+
+ Number of Slices:                      104  out of    704    14%  
+ Number of Slice Flip Flops:            140  out of   1408     9%  
+ Number of 4 input LUTs:                181  out of   1408    12%  
+ Number of IOs:                          14
+ Number of bonded IOBs:                  14  out of    108    12%  
+ Number of GCLKs:                         2  out of     24     8%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+---------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)     | Load  |
+-----------------------------------+---------------------------+-------+
+clk                                | BUFGP                     | 74    |
+clk2561(clk1_2/clk_out113:O)       | BUFG(*)(clk1_2/count_1)   | 29    |
+blue/present_state_2               | NONE(blue/LR/out_0)       | 8     |
+green/present_state_2              | NONE(green/LR/out_0)      | 8     |
+red/present_state_2                | NONE(red/LR/out_0)        | 8     |
+clk1_2/count_1                     | NONE(intensity/C1/count_5)| 7     |
+intensity/present_state_2          | NONE(intensity/LR/out_0)  | 6     |
+-----------------------------------+---------------------------+-------+
+(*) This 1 clock signal(s) are generated by combinatorial logic,
+and XST is not able to identify which are the primary clock signals.
+Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+------------------------------------------------------+---------------------------+-------+
+Control Signal                                        | Buffer(FF name)           | Load  |
+------------------------------------------------------+---------------------------+-------+
+reset                                                 | IBUF                      | 12    |
+blue/present_state_0(blue/present_state_0:Q)          | NONE(blue/C1/count_0)     | 9     |
+green/present_state_0(green/present_state_0:Q)        | NONE(green/C1/count_0)    | 9     |
+red/present_state_0(red/present_state_0:Q)            | NONE(red/C1/count_0)      | 9     |
+intensity/present_state_0(intensity/present_state_0:Q)| NONE(intensity/C1/count_0)| 7     |
+------------------------------------------------------+---------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 4.501ns (Maximum Frequency: 222.173MHz)
+   Minimum input arrival time before clock: 3.296ns
+   Maximum output required time after clock: 9.220ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 4.501ns (frequency: 222.173MHz)
+  Total number of paths / destination ports: 435 / 122
+-------------------------------------------------------------------------
+Delay:               4.501ns (Levels of Logic = 2)
+  Source:            blue/DelayForDischarge/count_0 (FF)
+  Destination:       blue/DelayForDischarge/count_3 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: blue/DelayForDischarge/count_0 to blue/DelayForDischarge/count_3
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRE:C->Q             5   0.591   0.636  blue/DelayForDischarge/count_0 (blue/DelayForDischarge/count_0)
+     LUT4:I3->O            2   0.648   0.527  blue/DelayForDischarge/of_cmp_eq00001 (blue/DelayForDischarge/of_cmp_eq0000)
+     LUT2:I1->O            4   0.643   0.587  blue/DelayForDischarge/count_and00001 (blue/DelayForDischarge/count_and0000)
+     FDRE:R                    0.869          blue/DelayForDischarge/count_0
+    ----------------------------------------
+    Total                      4.501ns (2.751ns logic, 1.750ns route)
+                                       (61.1% logic, 38.9% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk2561'
+  Clock period: 4.082ns (frequency: 244.978MHz)
+  Total number of paths / destination ports: 327 / 53
+-------------------------------------------------------------------------
+Delay:               4.082ns (Levels of Logic = 2)
+  Source:            blue/C1/count_4 (FF)
+  Destination:       blue/C1/count_7 (FF)
+  Source Clock:      clk2561 rising
+  Destination Clock: clk2561 rising
+
+  Data Path: blue/C1/count_4 to blue/C1/count_7
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q             3   0.591   0.674  blue/C1/count_4 (blue/C1/count_4)
+     LUT4_D:I0->O          1   0.648   0.452  blue/C1/count_cmp_eq00009 (blue/C1/count_cmp_eq00009)
+     LUT3:I2->O            8   0.648   0.757  blue/C1/count_or0000_inv1 (blue/C1/count_or0000_inv)
+     FDCE:CE                   0.312          blue/C1/count_0
+    ----------------------------------------
+    Total                      4.082ns (2.199ns logic, 1.883ns route)
+                                       (53.9% logic, 46.1% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk1_2/count_1'
+  Clock period: 3.747ns (frequency: 266.880MHz)
+  Total number of paths / destination ports: 63 / 13
+-------------------------------------------------------------------------
+Delay:               3.747ns (Levels of Logic = 2)
+  Source:            intensity/C1/count_2 (FF)
+  Destination:       intensity/C1/count_5 (FF)
+  Source Clock:      clk1_2/count_1 rising
+  Destination Clock: clk1_2/count_1 rising
+
+  Data Path: intensity/C1/count_2 to intensity/C1/count_5
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q             5   0.591   0.776  intensity/C1/count_2 (intensity/C1/count_2)
+     LUT4_L:I0->LO         1   0.648   0.103  intensity/C1/count_or0000_inv_SW0 (N10)
+     LUT4:I3->O            6   0.648   0.669  intensity/C1/count_or0000_inv (intensity/C1/count_or0000_inv)
+     FDCE:CE                   0.312          intensity/C1/count_0
+    ----------------------------------------
+    Total                      3.747ns (2.199ns logic, 1.548ns route)
+                                       (58.7% logic, 41.3% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk2561'
+  Total number of paths / destination ports: 27 / 27
+-------------------------------------------------------------------------
+Offset:              3.296ns (Levels of Logic = 2)
+  Source:            compared_value<1> (PAD)
+  Destination:       blue/C1/count_7 (FF)
+  Destination Clock: clk2561 rising
+
+  Data Path: compared_value<1> to blue/C1/count_7
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             4   0.849   0.730  compared_value_1_IBUF (compared_value_1_IBUF)
+     LUT3:I0->O            8   0.648   0.757  blue/C1/count_or0000_inv1 (blue/C1/count_or0000_inv)
+     FDCE:CE                   0.312          blue/C1/count_0
+    ----------------------------------------
+    Total                      3.296ns (1.809ns logic, 1.487ns route)
+                                       (54.9% logic, 45.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 8 / 8
+-------------------------------------------------------------------------
+Offset:              2.644ns (Levels of Logic = 3)
+  Source:            compared_value<2> (PAD)
+  Destination:       green/present_state_1 (FF)
+  Destination Clock: clk rising
+
+  Data Path: compared_value<2> to green/present_state_1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             4   0.849   0.619  compared_value_2_IBUF (compared_value_2_IBUF)
+     LUT4:I2->O            1   0.648   0.000  green/next_state<1>1 (green/next_state<1>1)
+     MUXF5:I1->O           1   0.276   0.000  green/next_state<1>_f5 (green/next_state<1>)
+     FDC:D                     0.252          green/present_state_1
+    ----------------------------------------
+    Total                      2.644ns (2.025ns logic, 0.619ns route)
+                                       (76.6% logic, 23.4% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk1_2/count_1'
+  Total number of paths / destination ports: 7 / 7
+-------------------------------------------------------------------------
+Offset:              3.140ns (Levels of Logic = 2)
+  Source:            compared_value<0> (PAD)
+  Destination:       intensity/C1/count_5 (FF)
+  Destination Clock: clk1_2/count_1 rising
+
+  Data Path: compared_value<0> to intensity/C1/count_5
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             4   0.849   0.667  compared_value_0_IBUF (compared_value_0_IBUF)
+     LUT4:I1->O            6   0.643   0.669  intensity/C1/count_or0000_inv (intensity/C1/count_or0000_inv)
+     FDCE:CE                   0.312          intensity/C1/count_0
+    ----------------------------------------
+    Total                      3.140ns (1.804ns logic, 1.336ns route)
+                                       (57.5% logic, 42.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 68 / 8
+-------------------------------------------------------------------------
+Offset:              9.220ns (Levels of Logic = 9)
+  Source:            intensity/p/count_0 (FF)
+  Destination:       pwm<0> (PAD)
+  Source Clock:      clk rising
+
+  Data Path: intensity/p/count_0 to pwm<0>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q              6   0.591   0.812  intensity/p/count_0 (intensity/p/count_0)
+     LUT2:I0->O            1   0.648   0.000  intensity/p/Mcompar_pwm_out_cmp_lt0000_lut<0> (intensity/p/Mcompar_pwm_out_cmp_lt0000_lut<0>)
+     MUXCY:S->O            1   0.632   0.000  intensity/p/Mcompar_pwm_out_cmp_lt0000_cy<0> (intensity/p/Mcompar_pwm_out_cmp_lt0000_cy<0>)
+     MUXCY:CI->O           1   0.065   0.000  intensity/p/Mcompar_pwm_out_cmp_lt0000_cy<1> (intensity/p/Mcompar_pwm_out_cmp_lt0000_cy<1>)
+     MUXCY:CI->O           1   0.065   0.000  intensity/p/Mcompar_pwm_out_cmp_lt0000_cy<2> (intensity/p/Mcompar_pwm_out_cmp_lt0000_cy<2>)
+     MUXCY:CI->O           1   0.065   0.000  intensity/p/Mcompar_pwm_out_cmp_lt0000_cy<3> (intensity/p/Mcompar_pwm_out_cmp_lt0000_cy<3>)
+     MUXCY:CI->O           1   0.065   0.000  intensity/p/Mcompar_pwm_out_cmp_lt0000_cy<4> (intensity/p/Mcompar_pwm_out_cmp_lt0000_cy<4>)
+     MUXCY:CI->O           1   0.269   0.420  intensity/p/Mcompar_pwm_out_cmp_lt0000_cy<5> (intensity/p/Mcompar_pwm_out_cmp_lt0000_cy<5>)
+     INV:I->O              1   0.648   0.420  intensity/p/Mcompar_pwm_out_cmp_lt0000_cy<5>_inv_INV_0 (pwm_0_OBUF)
+     OBUF:I->O                 4.520          pwm_0_OBUF (pwm<0>)
+    ----------------------------------------
+    Total                      9.220ns (7.568ns logic, 1.652ns route)
+                                       (82.1% logic, 17.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'red/present_state_2'
+  Total number of paths / destination ports: 8 / 1
+-------------------------------------------------------------------------
+Offset:              9.033ns (Levels of Logic = 11)
+  Source:            red/LR/out_0 (FF)
+  Destination:       pwm<3> (PAD)
+  Source Clock:      red/present_state_2 rising
+
+  Data Path: red/LR/out_0 to pwm<3>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               1   0.591   0.500  red/LR/out_0 (red/LR/out_0)
+     LUT2:I1->O            1   0.643   0.000  red/p/Mcompar_pwm_out_cmp_lt0000_lut<0> (red/p/Mcompar_pwm_out_cmp_lt0000_lut<0>)
+     MUXCY:S->O            1   0.632   0.000  red/p/Mcompar_pwm_out_cmp_lt0000_cy<0> (red/p/Mcompar_pwm_out_cmp_lt0000_cy<0>)
+     MUXCY:CI->O           1   0.065   0.000  red/p/Mcompar_pwm_out_cmp_lt0000_cy<1> (red/p/Mcompar_pwm_out_cmp_lt0000_cy<1>)
+     MUXCY:CI->O           1   0.065   0.000  red/p/Mcompar_pwm_out_cmp_lt0000_cy<2> (red/p/Mcompar_pwm_out_cmp_lt0000_cy<2>)
+     MUXCY:CI->O           1   0.065   0.000  red/p/Mcompar_pwm_out_cmp_lt0000_cy<3> (red/p/Mcompar_pwm_out_cmp_lt0000_cy<3>)
+     MUXCY:CI->O           1   0.065   0.000  red/p/Mcompar_pwm_out_cmp_lt0000_cy<4> (red/p/Mcompar_pwm_out_cmp_lt0000_cy<4>)
+     MUXCY:CI->O           1   0.065   0.000  red/p/Mcompar_pwm_out_cmp_lt0000_cy<5> (red/p/Mcompar_pwm_out_cmp_lt0000_cy<5>)
+     MUXCY:CI->O           1   0.065   0.000  red/p/Mcompar_pwm_out_cmp_lt0000_cy<6> (red/p/Mcompar_pwm_out_cmp_lt0000_cy<6>)
+     MUXCY:CI->O           1   0.269   0.420  red/p/Mcompar_pwm_out_cmp_lt0000_cy<7> (red/p/Mcompar_pwm_out_cmp_lt0000_cy<7>)
+     INV:I->O              1   0.648   0.420  red/p/Mcompar_pwm_out_cmp_lt0000_cy<7>_inv_INV_0 (pwm_3_OBUF)
+     OBUF:I->O                 4.520          pwm_3_OBUF (pwm<3>)
+    ----------------------------------------
+    Total                      9.033ns (7.693ns logic, 1.340ns route)
+                                       (85.2% logic, 14.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'green/present_state_2'
+  Total number of paths / destination ports: 8 / 1
+-------------------------------------------------------------------------
+Offset:              9.033ns (Levels of Logic = 11)
+  Source:            green/LR/out_0 (FF)
+  Destination:       pwm<2> (PAD)
+  Source Clock:      green/present_state_2 rising
+
+  Data Path: green/LR/out_0 to pwm<2>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               1   0.591   0.500  green/LR/out_0 (green/LR/out_0)
+     LUT2:I1->O            1   0.643   0.000  green/p/Mcompar_pwm_out_cmp_lt0000_lut<0> (green/p/Mcompar_pwm_out_cmp_lt0000_lut<0>)
+     MUXCY:S->O            1   0.632   0.000  green/p/Mcompar_pwm_out_cmp_lt0000_cy<0> (green/p/Mcompar_pwm_out_cmp_lt0000_cy<0>)
+     MUXCY:CI->O           1   0.065   0.000  green/p/Mcompar_pwm_out_cmp_lt0000_cy<1> (green/p/Mcompar_pwm_out_cmp_lt0000_cy<1>)
+     MUXCY:CI->O           1   0.065   0.000  green/p/Mcompar_pwm_out_cmp_lt0000_cy<2> (green/p/Mcompar_pwm_out_cmp_lt0000_cy<2>)
+     MUXCY:CI->O           1   0.065   0.000  green/p/Mcompar_pwm_out_cmp_lt0000_cy<3> (green/p/Mcompar_pwm_out_cmp_lt0000_cy<3>)
+     MUXCY:CI->O           1   0.065   0.000  green/p/Mcompar_pwm_out_cmp_lt0000_cy<4> (green/p/Mcompar_pwm_out_cmp_lt0000_cy<4>)
+     MUXCY:CI->O           1   0.065   0.000  green/p/Mcompar_pwm_out_cmp_lt0000_cy<5> (green/p/Mcompar_pwm_out_cmp_lt0000_cy<5>)
+     MUXCY:CI->O           1   0.065   0.000  green/p/Mcompar_pwm_out_cmp_lt0000_cy<6> (green/p/Mcompar_pwm_out_cmp_lt0000_cy<6>)
+     MUXCY:CI->O           1   0.269   0.420  green/p/Mcompar_pwm_out_cmp_lt0000_cy<7> (green/p/Mcompar_pwm_out_cmp_lt0000_cy<7>)
+     INV:I->O              1   0.648   0.420  green/p/Mcompar_pwm_out_cmp_lt0000_cy<7>_inv_INV_0 (pwm_2_OBUF)
+     OBUF:I->O                 4.520          pwm_2_OBUF (pwm<2>)
+    ----------------------------------------
+    Total                      9.033ns (7.693ns logic, 1.340ns route)
+                                       (85.2% logic, 14.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'blue/present_state_2'
+  Total number of paths / destination ports: 8 / 1
+-------------------------------------------------------------------------
+Offset:              9.033ns (Levels of Logic = 11)
+  Source:            blue/LR/out_0 (FF)
+  Destination:       pwm<1> (PAD)
+  Source Clock:      blue/present_state_2 rising
+
+  Data Path: blue/LR/out_0 to pwm<1>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               1   0.591   0.500  blue/LR/out_0 (blue/LR/out_0)
+     LUT2:I1->O            1   0.643   0.000  blue/p/Mcompar_pwm_out_cmp_lt0000_lut<0> (blue/p/Mcompar_pwm_out_cmp_lt0000_lut<0>)
+     MUXCY:S->O            1   0.632   0.000  blue/p/Mcompar_pwm_out_cmp_lt0000_cy<0> (blue/p/Mcompar_pwm_out_cmp_lt0000_cy<0>)
+     MUXCY:CI->O           1   0.065   0.000  blue/p/Mcompar_pwm_out_cmp_lt0000_cy<1> (blue/p/Mcompar_pwm_out_cmp_lt0000_cy<1>)
+     MUXCY:CI->O           1   0.065   0.000  blue/p/Mcompar_pwm_out_cmp_lt0000_cy<2> (blue/p/Mcompar_pwm_out_cmp_lt0000_cy<2>)
+     MUXCY:CI->O           1   0.065   0.000  blue/p/Mcompar_pwm_out_cmp_lt0000_cy<3> (blue/p/Mcompar_pwm_out_cmp_lt0000_cy<3>)
+     MUXCY:CI->O           1   0.065   0.000  blue/p/Mcompar_pwm_out_cmp_lt0000_cy<4> (blue/p/Mcompar_pwm_out_cmp_lt0000_cy<4>)
+     MUXCY:CI->O           1   0.065   0.000  blue/p/Mcompar_pwm_out_cmp_lt0000_cy<5> (blue/p/Mcompar_pwm_out_cmp_lt0000_cy<5>)
+     MUXCY:CI->O           1   0.065   0.000  blue/p/Mcompar_pwm_out_cmp_lt0000_cy<6> (blue/p/Mcompar_pwm_out_cmp_lt0000_cy<6>)
+     MUXCY:CI->O           1   0.269   0.420  blue/p/Mcompar_pwm_out_cmp_lt0000_cy<7> (blue/p/Mcompar_pwm_out_cmp_lt0000_cy<7>)
+     INV:I->O              1   0.648   0.420  blue/p/Mcompar_pwm_out_cmp_lt0000_cy<7>_inv_INV_0 (pwm_1_OBUF)
+     OBUF:I->O                 4.520          pwm_1_OBUF (pwm<1>)
+    ----------------------------------------
+    Total                      9.033ns (7.693ns logic, 1.340ns route)
+                                       (85.2% logic, 14.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'intensity/present_state_2'
+  Total number of paths / destination ports: 6 / 1
+-------------------------------------------------------------------------
+Offset:              8.903ns (Levels of Logic = 9)
+  Source:            intensity/LR/out_0 (FF)
+  Destination:       pwm<0> (PAD)
+  Source Clock:      intensity/present_state_2 rising
+
+  Data Path: intensity/LR/out_0 to pwm<0>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               1   0.591   0.500  intensity/LR/out_0 (intensity/LR/out_0)
+     LUT2:I1->O            1   0.643   0.000  intensity/p/Mcompar_pwm_out_cmp_lt0000_lut<0> (intensity/p/Mcompar_pwm_out_cmp_lt0000_lut<0>)
+     MUXCY:S->O            1   0.632   0.000  intensity/p/Mcompar_pwm_out_cmp_lt0000_cy<0> (intensity/p/Mcompar_pwm_out_cmp_lt0000_cy<0>)
+     MUXCY:CI->O           1   0.065   0.000  intensity/p/Mcompar_pwm_out_cmp_lt0000_cy<1> (intensity/p/Mcompar_pwm_out_cmp_lt0000_cy<1>)
+     MUXCY:CI->O           1   0.065   0.000  intensity/p/Mcompar_pwm_out_cmp_lt0000_cy<2> (intensity/p/Mcompar_pwm_out_cmp_lt0000_cy<2>)
+     MUXCY:CI->O           1   0.065   0.000  intensity/p/Mcompar_pwm_out_cmp_lt0000_cy<3> (intensity/p/Mcompar_pwm_out_cmp_lt0000_cy<3>)
+     MUXCY:CI->O           1   0.065   0.000  intensity/p/Mcompar_pwm_out_cmp_lt0000_cy<4> (intensity/p/Mcompar_pwm_out_cmp_lt0000_cy<4>)
+     MUXCY:CI->O           1   0.269   0.420  intensity/p/Mcompar_pwm_out_cmp_lt0000_cy<5> (intensity/p/Mcompar_pwm_out_cmp_lt0000_cy<5>)
+     INV:I->O              1   0.648   0.420  intensity/p/Mcompar_pwm_out_cmp_lt0000_cy<5>_inv_INV_0 (pwm_0_OBUF)
+     OBUF:I->O                 4.520          pwm_0_OBUF (pwm<0>)
+    ----------------------------------------
+    Total                      8.903ns (7.563ns logic, 1.340ns route)
+                                       (84.9% logic, 15.1% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 16.00 secs
+Total CPU time to Xst completion: 16.32 secs
+ 
+--> 
+
+Total memory usage is 4513160 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    0 (   0 filtered)
+Number of infos    :    9 (   0 filtered)
+

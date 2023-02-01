@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -o "F:/CEDT projects/color_mixer_fpga/references/pwm_isim_beh.exe" -prj "F:/CEDT projects/color_mixer_fpga/references/pwm_beh.prj" "work.pwm" "work.glbl" 

@@ -1,0 +1,25 @@
+Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -o F:/CEDT projects/color_mixer_fpga/codes/uart_rx/uart_rx_tb_isim_beh.exe -prj F:/CEDT projects/color_mixer_fpga/codes/uart_rx/uart_rx_tb_beh.prj work.uart_rx_tb work.glbl 
+ISim P.20131013 (signature 0x7708f090)
+Number of CPUs detected in this system: 4
+Turning on mult-threading, number of parallel sub-compilation jobs: 8 
+Determining compilation order of HDL files
+Analyzing Verilog file "F:/CEDT projects/color_mixer_fpga/codes/uart_rx/uart_rx_code.v" into library work
+Analyzing Verilog file "F:/CEDT projects/color_mixer_fpga/codes/uart_rx/uart_rx_tb.v" into library work
+Analyzing Verilog file "C:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
+Starting static elaboration
+Completed static elaboration
+Compiling module ram
+Compiling module clk_divider
+Compiling module baudrate
+Compiling module mux
+Compiling module comparator
+Compiling module datacounter
+Compiling module uart_rx_code
+Compiling module uart_rx_tb
+Compiling module glbl
+Time Resolution for simulation is 1ps.
+Waiting for 2 sub-compilation(s) to finish...
+Compiled 9 Verilog Units
+Built simulation executable F:/CEDT projects/color_mixer_fpga/codes/uart_rx/uart_rx_tb_isim_beh.exe
+Fuse Memory Usage: 28228 KB
+Fuse CPU Usage: 468 ms

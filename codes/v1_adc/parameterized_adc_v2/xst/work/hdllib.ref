@@ -1,0 +1,7 @@
+MO pwm NULL adc.v vlg30/pwm.bin 1625908250
+MO adc_counter NULL adc.v vlg13/adc__counter.bin 1625908250
+MO clk_divider NULL adc.v vlg70/clk__divider.bin 1625908250
+MO adc4pwm NULL adc.v vlg64/adc4pwm.bin 1625908250
+MO adc NULL adc.v vlg50/adc.bin 1625908250
+MO latch NULL adc.v vlg34/latch.bin 1625908250
+MO delay10us NULL adc.v vlg48/delay10us.bin 1625908250

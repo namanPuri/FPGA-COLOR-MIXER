@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=F:\CEDT projects\color_mixer_fpga\codes\v1_adc\parameterized_adc_v3\adc4pwm.ncd
+OUTFILE=F:\CEDT projects\color_mixer_fpga\codes\v1_adc\parameterized_adc_v3\adc4pwm.bit
+FAMILY=Spartan3A and Spartan3AN
+PART=xc3s50an-4tqg144
+WORKINGDIR=F:\CEDT projects\color_mixer_fpga\codes\v1_adc\parameterized_adc_v3
+LICENSE=WebPack
+USER_INFO=211551987_0_0_978

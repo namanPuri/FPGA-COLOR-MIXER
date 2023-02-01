@@ -1,0 +1,47 @@
+**** Build of configuration Release for project MikrocontrollerUsiUart ****
+
+make all 
+Building file: ../USI_UART.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=attiny84 -DF_CPU=8000000UL -MMD -MP -MF"USI_UART.d" -MT"USI_UART.d" -c -o "USI_UART.o" "../USI_UART.c"
+Finished building: ../USI_UART.c
+ 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=attiny84 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: MikrocontrollerUsiUart.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,MikrocontrollerUsiUart.map -mmcu=attiny84 -o "MikrocontrollerUsiUart.elf"  ./USI_UART.o ./main.o   
+Finished building target: MikrocontrollerUsiUart.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S MikrocontrollerUsiUart.elf  >"MikrocontrollerUsiUart.lss"
+Finished building: MikrocontrollerUsiUart.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex MikrocontrollerUsiUart.elf  "MikrocontrollerUsiUart.hex"
+Finished building: MikrocontrollerUsiUart.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex MikrocontrollerUsiUart.elf  "MikrocontrollerUsiUart.eep"
+Finished building: MikrocontrollerUsiUart.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=attiny84 MikrocontrollerUsiUart.elf
+AVR Memory Usage
+----------------
+Device: attiny84
+
+Program:    1150 bytes (14.0% Full)
+(.text + .data + .bootloader)
+
+Data:         88 bytes (17.2% Full)  [Using two 32 byte buffers for Rx and Tx]
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+**** Build Finished ****

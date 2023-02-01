@@ -1,0 +1,19 @@
+#-----------------------------------------------------------
+# PlanAhead v14.7
+# Build 321239 by xbuild on Fri Sep 27 19:31:35 MDT 2013
+# Start of session at: Wed Apr 21 21:26:05 2021
+# Process ID: 2732
+# Log file: F:/CEDT projects/color_mixer_fpga/references/clock_divideBy3/planAhead_run_5/planAhead.log
+# Journal file: F:/CEDT projects/color_mixer_fpga/references/clock_divideBy3/planAhead_run_5/planAhead.jou
+#-----------------------------------------------------------
+start_gui
+source {F:/CEDT projects/color_mixer_fpga/references/clock_divideBy3/pa.fromNetlist.tcl}
+startgroup
+set_property package_pin P60 [get_ports clk_in]
+endgroup
+startgroup
+set_property package_pin P70 [get_ports clk_out]
+endgroup
+set_property is_loc_fixed false [get_ports [list  clk_out]]
+set_property is_loc_fixed true [get_ports [list  clk_out]]
+save_constraints

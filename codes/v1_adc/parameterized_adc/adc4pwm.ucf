@@ -1,0 +1,17 @@
+
+# PlanAhead Generated physical constraints 
+
+NET "pwm[0]" LOC = P134;
+NET "pwm[2]" LOC = P130;
+NET "pwm[3]" LOC = P116;
+NET "pwm[1]" LOC = P124;
+NET "clk" LOC = P55;
+NET "reset" LOC = P138;
+NET "discharge[3]" LOC = P4;
+NET "discharge[2]" LOC = P28;
+NET "discharge[1]" LOC = P32;
+NET "discharge[0]" LOC = P44;
+NET "compared_value[3]" LOC = P6;
+NET "compared_value[2]" LOC = P16;
+NET "compared_value[1]" LOC = P30;
+NET "compared_value[0]" LOC = P42;

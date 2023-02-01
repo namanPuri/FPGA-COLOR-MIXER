@@ -1,0 +1,22 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Mon Jul 05 15:10:19 2021
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "pwm<0>" LOCATE = SITE "P134" LEVEL 1;
+COMP "pwm<1>" LOCATE = SITE "P124" LEVEL 1;
+COMP "pwm<2>" LOCATE = SITE "P130" LEVEL 1;
+COMP "pwm<3>" LOCATE = SITE "P116" LEVEL 1;
+NET "clk_BUFGP/IBUFG" BEL "clk_BUFGP/BUFG.GCLKMUX" USELOCALCONNECT;
+COMP "clk" LOCATE = SITE "P55" LEVEL 1;
+COMP "compared_value<0>" LOCATE = SITE "P42" LEVEL 1;
+COMP "compared_value<1>" LOCATE = SITE "P30" LEVEL 1;
+COMP "compared_value<2>" LOCATE = SITE "P16" LEVEL 1;
+COMP "compared_value<3>" LOCATE = SITE "P6" LEVEL 1;
+COMP "reset" LOCATE = SITE "P138" LEVEL 1;
+COMP "discharge<0>" LOCATE = SITE "P44" LEVEL 1;
+COMP "discharge<1>" LOCATE = SITE "P32" LEVEL 1;
+COMP "discharge<2>" LOCATE = SITE "P28" LEVEL 1;
+COMP "discharge<3>" LOCATE = SITE "P4" LEVEL 1;
+SCHEMATIC END;
+

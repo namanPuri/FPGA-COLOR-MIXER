@@ -1,0 +1,9 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Wed Apr 21 21:27:25 2021
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "clk_out" LOCATE = SITE "P70" LEVEL 1;
+COMP "clk_in" LOCATE = SITE "P60" LEVEL 1;
+SCHEMATIC END;
+

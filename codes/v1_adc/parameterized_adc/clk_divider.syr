@@ -1,0 +1,399 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.14 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.14 secs
+ 
+--> Reading design: clk_divider.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "clk_divider.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "clk_divider"
+Output Format                      : NGC
+Target Device                      : xc3s50an-4-tqg144
+
+---- Source Options
+Top Module Name                    : clk_divider
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 500
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "adc.v" in library work
+Module <clk_divider> compiled
+No errors in compilation
+Analysis of file <"clk_divider.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <clk_divider> in library <work> with parameters.
+	N = "00000000000000000000000000100111"
+	WIDTH = "00000000000000000000000000000110"
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <clk_divider>.
+	N = 32'sb00000000000000000000000000100111
+	WIDTH = 32'sb00000000000000000000000000000110
+Module <clk_divider> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <clk_divider>.
+    Related source file is "adc.v".
+    Found 6-bit comparator greater for signal <clk_out1$cmp_gt0000> created at line 118.
+    Found 6-bit comparator greater for signal <clk_out1$cmp_gt0001> created at line 118.
+    Found 2-bit up counter for signal <count>.
+    Found 6-bit up counter for signal <neg_count>.
+    Found 6-bit up counter for signal <pos_count>.
+    Summary:
+	inferred   3 Counter(s).
+	inferred   2 Comparator(s).
+Unit <clk_divider> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Counters                                             : 3
+ 2-bit up counter                                      : 1
+ 6-bit up counter                                      : 2
+# Comparators                                          : 2
+ 6-bit comparator greater                              : 2
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Counters                                             : 3
+ 2-bit up counter                                      : 1
+ 6-bit up counter                                      : 2
+# Comparators                                          : 2
+ 6-bit comparator greater                              : 2
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <clk_divider> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block clk_divider, actual ratio is 1.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 14
+ Flip-Flops                                            : 14
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : clk_divider.ngr
+Top Level Output File Name         : clk_divider
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 3
+
+Cell Usage :
+# BELS                             : 24
+#      INV                         : 3
+#      LUT2                        : 5
+#      LUT3                        : 4
+#      LUT3_L                      : 2
+#      LUT4                        : 6
+#      LUT4_D                      : 2
+#      MUXF5                       : 1
+#      VCC                         : 1
+# FlipFlops/Latches                : 14
+#      FD                          : 1
+#      FDR                         : 13
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 2
+#      OBUF                        : 2
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s50antqg144-4 
+
+ Number of Slices:                       12  out of    704     1%  
+ Number of Slice Flip Flops:             14  out of   1408     0%  
+ Number of 4 input LUTs:                 22  out of   1408     1%  
+ Number of IOs:                           3
+ Number of bonded IOBs:                   3  out of    108     2%  
+ Number of GCLKs:                         1  out of     24     4%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk_out1_OBUF(clk_out112:O)        | NONE(*)(count_1)       | 2     |
+clk                                | BUFGP                  | 12    |
+-----------------------------------+------------------------+-------+
+(*) This 1 clock signal(s) are generated by combinatorial logic,
+and XST is not able to identify which are the primary clock signals.
+Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 4.304ns (Maximum Frequency: 232.342MHz)
+   Minimum input arrival time before clock: No path found
+   Maximum output required time after clock: 8.396ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk_out1_OBUF'
+  Clock period: 2.081ns (frequency: 480.538MHz)
+  Total number of paths / destination ports: 3 / 2
+-------------------------------------------------------------------------
+Delay:               2.081ns (Levels of Logic = 1)
+  Source:            count_1 (FF)
+  Destination:       count_1 (FF)
+  Source Clock:      clk_out1_OBUF rising
+  Destination Clock: clk_out1_OBUF rising
+
+  Data Path: count_1 to count_1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               2   0.591   0.590  count_1 (count_1)
+     LUT2:I0->O            1   0.648   0.000  Mcount_count_xor<1>11 (Result<1>)
+     FD:D                      0.252          count_1
+    ----------------------------------------
+    Total                      2.081ns (1.491ns logic, 0.590ns route)
+                                       (71.6% logic, 28.4% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 4.304ns (frequency: 232.342MHz)
+  Total number of paths / destination ports: 114 / 24
+-------------------------------------------------------------------------
+Delay:               4.304ns (Levels of Logic = 2)
+  Source:            pos_count_2 (FF)
+  Destination:       pos_count_0 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: pos_count_2 to pos_count_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q              5   0.591   0.776  pos_count_2 (pos_count_2)
+     LUT3_L:I0->LO         1   0.648   0.103  pos_count_cmp_eq0000_SW0 (N2)
+     LUT4:I3->O            6   0.648   0.669  pos_count_cmp_eq0000 (pos_count_cmp_eq0000)
+     FDR:R                     0.869          pos_count_0
+    ----------------------------------------
+    Total                      4.304ns (2.756ns logic, 1.548ns route)
+                                       (64.0% logic, 36.0% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 8 / 1
+-------------------------------------------------------------------------
+Offset:              8.396ns (Levels of Logic = 4)
+  Source:            pos_count_4 (FF)
+  Destination:       clk_out1 (PAD)
+  Source Clock:      clk rising
+
+  Data Path: pos_count_4 to clk_out1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q              4   0.591   0.730  pos_count_4 (pos_count_4)
+     LUT4:I0->O            1   0.648   0.000  clk_out112_SW01 (clk_out112_SW0)
+     MUXF5:I0->O           1   0.276   0.452  clk_out112_SW0_f5 (N6)
+     LUT4:I2->O            3   0.648   0.531  clk_out112 (clk_out1_OBUF)
+     OBUF:I->O                 4.520          clk_out1_OBUF (clk_out1)
+    ----------------------------------------
+    Total                      8.396ns (6.683ns logic, 1.713ns route)
+                                       (79.6% logic, 20.4% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk_out1_OBUF'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              5.558ns (Levels of Logic = 1)
+  Source:            count_1 (FF)
+  Destination:       clk_out2 (PAD)
+  Source Clock:      clk_out1_OBUF rising
+
+  Data Path: count_1 to clk_out2
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               2   0.591   0.447  count_1 (count_1)
+     OBUF:I->O                 4.520          clk_out2_OBUF (clk_out2)
+    ----------------------------------------
+    Total                      5.558ns (5.111ns logic, 0.447ns route)
+                                       (92.0% logic, 8.0% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 5.00 secs
+Total CPU time to Xst completion: 5.12 secs
+ 
+--> 
+
+Total memory usage is 4513192 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    0 (   0 filtered)
+Number of infos    :    1 (   0 filtered)
+

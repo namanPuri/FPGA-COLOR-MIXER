@@ -1,0 +1,10 @@
+
+
+NET "clk_in" IOSTANDARD = LVCMOS25;
+
+
+
+# PlanAhead Generated physical constraints 
+
+NET "clk_in" LOC = P60;
+NET "clk_out" LOC = P70;
